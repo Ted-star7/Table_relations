@@ -11,10 +11,10 @@ conn = sqlite3.connect('data.sqlite')
 pd.read_sql("""SELECT * FROM sqlite_master""", conn)
 
 # Step 1
-# Return the first and last names and the job titles for all employees in Boston
+# Return the first and last names for all employees in Boston
 
 df_boston = pd.read_sql("""
-    SELECT e.firstName, e.lastName, e.jobTitle
+    SELECT e.firstName, e.lastName
     FROM employees e
     JOIN offices o ON e.officeCode = o.officeCode
     WHERE o.city = 'Boston'
